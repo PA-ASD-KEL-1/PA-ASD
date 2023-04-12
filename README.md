@@ -1,36 +1,21 @@
-Perpustakaan merupakan tempat yang menyediakan berbagai jenis buku untuk dipinjam oleh masyarakat umum.tujuan adanya perpustakaan adalah untuk mendukung Pendidikan masyarakat.namun,seringkali perpustakaan masih kurang efisien/efektif dalam mengelola data buku.oleh karena itu program ini dibuat dengan harapan dapat membantu mengatasi masalah tersebut.
-Program ini dibuat menggunakan bahasa pemrograman python. Dalam program ini terdapat login yang terdiri dari login pengunjung dan admin,jika pengunjung belum memiliki akun maka dapat mendaftar terlebih dahulu,pembuatan menu login ini terhubung dengan database,sehingga saat pengunjung melakukkan registrasi maka data tersebut akan tersimpan didalam database Bersama dengan data pengunjung yang sudah ada dan admin. Pada menu admin,terdapat pilihan tampilkan data buku,tambah data buku,urutkan data buku,menghapus data buku,searching data buku.sedangkan pada menu pengunjung terdapat pilihan tampilkan data buku.
+Deskripsi program
+Program ini dibuat menggunakan bahasa pemrograman Python yang terhubung dengan database yang berguna untuk membantu meningkatkan efisiensi pengelolaan data buku di perpustakaan. Program ini memiliki fitur login multiuser dengan user utamanya adalah admin dan pengunjung. Diprogram, user dapat melakukan registrasi akun dan nantinya data akun tersebut akan disimpan kedalam sebuah database. Selanjutnya pada menu admin, terdapat tampilan beberapa pilihan menu yang dapat dipilih diantaranya yaitu dapat menampilkan data , menambah data, mengurutkan data secara ascending, menghapus data, dan mencari data. Sedangkan pada menu pengunjung, terdapat tampilan untuk menampilkan data buku yang tersedia, melakukan peminjaman buku, melakukan pengembalian buku,dan dan melihat riwayat peminjaman buku.
 
-Program ini dibuat dengan tujuan:
+Struktur project
+Project ini terdiri dari 2 file, yaitu : File program dan file dokumentasi
+File program sebagai file utama dari project ini berisi codingan yang menerapkan database mysql sebagai tempat penyimpanan data akun, peminjaman, pengembalian, serta history. Program ini juga menerapkan fungsi linkedlist untuk mengelola databuku, fungsi shellsort untuk mengsorting databuku, serta fungsi fibbonaccisearch untuk mengsearching databuku. Lalu selanjutnya file dokumentasi, yakni readme.md yang merupakan file yang berisi dokumentasi project, penjelasan singkat program, fitur fitur yang terdapat pada program serta termasuk cara untuk menjalankan program.
 
-1.)	Mempermudah pengunjung untuk mencari dan meminjam buku yang tersedia.
+Fitur dan fungsionalitas
+Berikut adalah beberapa contoh fitur dan fungsionalitas pada program:
+Fitur Login: Memungkinkan user untuk login ke akun mereka dengan mengautentikasi username dan password. Dalam proses login, user harus memasukkan kombinasi dari username dan password yang kemudian akan diverifikasi oleh sistem sebelum memberikan akses ke akun tersebut.
+Fitur Dashboard: Memberikan tampilan menu yang dapat dipilih oleh user. Fitur ini akan ditampilkan berdasarkan dari role user(menu/pengunjung) yang login dan merupakan tampilan awal ketika user telah berhasil login.
 
-2.)	Untuk menampilkan buku sesuai dengan abjad
-
-3.)	Untuk menampilkan jumlah stok dari buku yang tersedia
-
-4.)	Memudahkan admin untuk menambah dan menggubah data buku.
-
-Fitur yang ada di dalam program dan fungsinya:
-
-1.)	Node class,berfungsi untuk mepresentasikan node pada linked list yang berisi data yang ingin disimpan dan pointer ke node selanjutnya.
-
-2.)	Linked list,merupakan sebuah class yang memresentasikan linked list yang berisi metode untuk menghapus data,menambah data,menampilkan data,dan melakukan sorting.
-
-3.)	Tambah data,berfungsi untuk menambah data ke dalam linked list.
-
-4.)	Hapus data,berfungsi untuk menghapus data yang ada dalam linked list.
-
-5.)	Tampil,berfungsi untuk menampilkan data yang ada di dalam linked list.
-
-6.)	Get_lenght berfungsi untuk menghitung jumlah node yang ada pada linked list
-
-7.)	sorting,pada program ini menggunakan quick sort untuk mengurutkan data buku yang ada.fungsi  sorting pada program ini adalah untuk mengurutkan data buku sesuai dengan abjad.
-
-8.)	Searching,program ini menggunakan Fibonacci search untuk mencari data buku yang tersedia,untuk menggunakan searching penggunjung dapat menginput judul buku yang ingin dicari.
-
-
-
-Cara penggunaan program:
-Menu awal terdapat dua pilihan yang pertama merupakan login dan yang kedua merupakan register.pada menu login admin maupun pengunjung akan diminta untuk menginput username dan password jika username dan password yang di input sesuai maka akan lanjut ke menu selanjutnya(admin ke menu admin dan pengunjung ke menu pengunjung),tetapi bila username atau password yang dimasukkan salah maka akan Kembali ke menu awal.pada menu register pengunjung akan diminta untuk menginput username dan password,sesudah itu data yang diinput akan masuk ke database.
-Penggunaan program ini cukup sederhana.penggunjung dapat mencari buku dan meminjam buku yang tersedia,sedangkan admin dapat menambah data buku,menghapus,dan mengedit data buku. 
+Fitur dan fungsionalitas role admin terdapat :
+Fitur Tambah data: Memungkinkan admin untuk melakukan penambahan databuku kedalam sistem.
+Fitur Pencarian: Memungkinkan admin untuk mencari data atau informasi mengenai databuku didalam sistem.
+Fitur Sorting: Memungkinkan admin untuk memfilter atau mensorting databuku dalam sistem berdasarkan judul buku secara ascending (urutan secara abjad)
+Fitur Hapus data : Memungkinkan admin untuk melakukan penghapusan databuku didalam sistem.
+Fitur dan fungsionalitas role pengunjung terdapat :
+Fitur Peminjaman : Memungkinkan user untuk melakukan peminjaman buku. Dan buku yang dipinjam hanya dapat dipinjam sekali saja.
+Fitur Pengembalian : Memungkin user untuk melakukan pengembalian buku yang telah dipinjam sebelumnya.
+Fitur History: Memungkinkan pengguna untuk melihat daftar buku yang pernah dipinjam sebelumnya.
