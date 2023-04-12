@@ -11,13 +11,13 @@ File program sebagai file utama dari project ini berisi codingan yang menerapkan
 
 **Fitur dan fungsionalitas**
 
-Berikut adalah beberapa contoh fitur dan fungsionalitas pada program:
+* Berikut adalah beberapa contoh fitur dan fungsionalitas pada program:
 
 1.)Fitur Login: Memungkinkan user untuk login ke akun mereka dengan mengautentikasi username dan password. Dalam proses login, user harus memasukkan kombinasi dari username dan password yang kemudian akan diverifikasi oleh sistem sebelum memberikan akses ke akun tersebut.
 
 2.)Fitur Dashboard: Memberikan tampilan menu yang dapat dipilih oleh user. Fitur ini akan ditampilkan berdasarkan dari role user(menu/pengunjung) yang login dan merupakan tampilan awal ketika user telah berhasil login.
 
-Fitur dan fungsionalitas role admin terdapat :
+* Fitur dan fungsionalitas role admin terdapat :
 
 1.)Fitur Tambah data: Memungkinkan admin untuk melakukan penambahan databuku kedalam sistem.
 
@@ -27,7 +27,7 @@ Fitur dan fungsionalitas role admin terdapat :
 
 4.)Fitur Hapus data : Memungkinkan admin untuk melakukan penghapusan databuku didalam sistem.
 
-Fitur dan fungsionalitas role pengunjung terdapat :
+* Fitur dan fungsionalitas role pengunjung terdapat :
 
 1.)Fitur Peminjaman : Memungkinkan user untuk melakukan peminjaman buku. Dan buku yang dipinjam hanya dapat dipinjam sekali saja.
 
