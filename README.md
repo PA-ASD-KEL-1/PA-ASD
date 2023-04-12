@@ -20,12 +20,17 @@ Berikut adalah beberapa contoh fitur dan fungsionalitas pada program:
 Fitur dan fungsionalitas role admin terdapat :
 
 1.)Fitur Tambah data: Memungkinkan admin untuk melakukan penambahan databuku kedalam sistem.
+
 2.)Fitur Pencarian: Memungkinkan admin untuk mencari data atau informasi mengenai databuku didalam sistem.
+
 3.)Fitur Sorting: Memungkinkan admin untuk memfilter atau mensorting databuku dalam sistem berdasarkan judul buku secara ascending (urutan secara abjad)
+
 4.)Fitur Hapus data : Memungkinkan admin untuk melakukan penghapusan databuku didalam sistem.
 
 Fitur dan fungsionalitas role pengunjung terdapat :
 
 1.)Fitur Peminjaman : Memungkinkan user untuk melakukan peminjaman buku. Dan buku yang dipinjam hanya dapat dipinjam sekali saja.
+
 2.)Fitur Pengembalian : Memungkin user untuk melakukan pengembalian buku yang telah dipinjam sebelumnya.
+
 3.)Fitur History: Memungkinkan pengguna untuk melihat daftar buku yang pernah dipinjam sebelumnya.
