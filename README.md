@@ -14,23 +14,24 @@ File program sebagai file utama dari project ini berisi codingan yang menerapkan
 * Berikut adalah beberapa contoh fitur dan fungsionalitas pada program:
 
   1.) Fitur Login: Memungkinkan user untuk login ke akun mereka dengan mengautentikasi username dan password. Dalam proses login, user harus memasukkan kombinasi dari    username dan password yang kemudian akan diverifikasi oleh sistem sebelum memberikan akses ke akun tersebut.
-
   2.) Fitur Dashboard: Memberikan tampilan menu yang dapat dipilih oleh user. Fitur ini akan ditampilkan berdasarkan dari role user(menu/pengunjung) yang login dan merupakan tampilan awal ketika user telah berhasil login.
 
 * Fitur dan fungsionalitas role admin terdapat :
 
   1.) Fitur Tambah data: Memungkinkan admin untuk melakukan penambahan databuku kedalam sistem.
-
   2.) Fitur Pencarian: Memungkinkan admin untuk mencari data atau informasi mengenai databuku didalam sistem.
-
   3.) Fitur Sorting: Memungkinkan admin untuk memfilter atau mensorting databuku dalam sistem berdasarkan judul buku secara ascending (urutan secara abjad)
-
   4.) Fitur Hapus data : Memungkinkan admin untuk melakukan penghapusan databuku didalam sistem.
 
 * Fitur dan fungsionalitas role pengunjung terdapat :
 
   1.) Fitur Peminjaman : Memungkinkan user untuk melakukan peminjaman buku. Dan buku yang dipinjam hanya dapat dipinjam sekali saja.
-
   2.) Fitur Pengembalian : Memungkin user untuk melakukan pengembalian buku yang telah dipinjam sebelumnya.
-
   3.) Fitur History: Memungkinkan pengguna untuk melihat daftar buku yang pernah dipinjam sebelumnya.
+  
+  
+**Cara Penggunaan**
+
+Untuk dapat menggunakan program ini, user perlu melakukan registrasi akun terlebih dahulu. Dengan memasukkan nama lengkap, dan membuat username serta password maka user telah berhasil membuat akun. 
+Setelah itu user perlu mengakses fitur login, user akan diminta untuk memasukkan username dan password yang telah dibuat sebelumnya. 
+Setelah berhasil login, user akan diarahkan ke menu dashboard yang dimana akan tampil beberapa pilihan menu, user dibebaskan memilih menu mana yang dia inginkan dan setiap menu pastinya memiliki fungsinya masing masing dan akan berbeda satu sama lainnya. Program ini akan terus berjalan hingga user memilih untuk keluar dari program.
