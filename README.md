@@ -35,6 +35,17 @@ File program sebagai file utama dari project ini berisi codingan yang menerapkan
 ### Cara Penggunaan
 ---
 
-Untuk dapat menggunakan program ini, user perlu melakukan registrasi akun terlebih dahulu. Dengan memasukkan nama lengkap, dan membuat username serta password maka user telah berhasil membuat akun. 
-Setelah itu user perlu mengakses fitur login, user akan diminta untuk memasukkan username dan password yang telah dibuat sebelumnya. 
-Setelah berhasil login, user akan diarahkan ke menu dashboard yang dimana akan tampil beberapa pilihan menu, user dibebaskan memilih menu mana yang dia inginkan dan setiap menu pastinya memiliki fungsinya masing masing dan akan berbeda satu sama lainnya. Program ini akan terus berjalan hingga user memilih untuk keluar dari program.
+Program ini merupakan program CRUD (Create, Read, Update, Delete) dengan fitur login multiuser yang dibuat dengan menggunakan bahasa pemrograman Python. Program ini memiliki dua role user utama yaitu admin dan pengunjung.
+
+Untuk memulai program ini, jika user (pengunjung) belum memiliki akun, user perlu melakukan registrasi akun terlebih dahulu, akun dapat dengan mudah dibuat hanya dengan memasukkan nama lengkap, username, dan password. 
+
+Lalu kemudian setelah user berhasil membuat akun, user perlu mengakses fitur login untuk dapat masuk ke dalam program. 
+Difitur login user akan diminta untuk memasukkan username dan password yang telah dibuat sebelumnya. 
+*Disclamer (Fitur registrasi hanya dapat dimanfaatkan oleh role user pengunjung saja. Dan untuk role user admin tidak perlu membuat akun)*
+
+Setelah berhasil login, user akan diarahkan ke menu dashboard yang terdiri dari beberapa pilihan menu. Jika role user yang berhasil login merupakan admin, maka akan tampil beberapa pilihan menu khusus admin yang dapat dipilih seperti menu menampilkan data buku, menambah data buku, menghapus data buku, mencari data buku, mengurutkan data buku secara ascending serta menu exit untuk keluar dari program. 
+
+Sedangkan jika role user yang login merupakan pengunjung, maka akan tampil beberapa pilihan menu pengunjung yang dapat dipilih seperti menu menampilkan data buku, meminjam buku, mengembalikan buku, melihat histori peminjaman buku, dan menu exit untuk keluar dari program. 
+
+Setiap pilihan menu memiliki fungsinya masing-masing dan tampilannya akan sangat berbeda menyesuaikan role user yang sedang login. 
+Program ini akan terus berjalan hingga user memilih untuk keluar dari program. Jadi, setelah user selesai menggunakan program, user dapat keluar dari program dengan memilih menu exit atau menutup program secara langsung.
