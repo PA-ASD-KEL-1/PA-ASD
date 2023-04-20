@@ -15,7 +15,6 @@ try :
     database='perpuskelompok1'
     )
 
-
 except mysql.connector.Error as error:
     clear()
     print("Tidak dapat terhubung kedatabase!")
