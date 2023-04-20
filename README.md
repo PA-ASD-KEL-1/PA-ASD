@@ -3,14 +3,16 @@
 
 Program ini dibuat menggunakan bahasa pemrograman Python yang terhubung dengan database yang berguna untuk membantu meningkatkan efisiensi pengelolaan data buku di perpustakaan. Program ini memiliki fitur login multiuser dengan user utamanya adalah admin dan pengunjung. Diprogram, user dapat melakukan registrasi akun dan nantinya data akun tersebut akan disimpan kedalam sebuah database. Selanjutnya pada menu admin, terdapat tampilan beberapa pilihan menu yang dapat dipilih diantaranya yaitu dapat menampilkan data , menambah data, mengurutkan data secara ascending, menghapus data, dan mencari data. Sedangkan pada menu pengunjung, terdapat tampilan untuk menampilkan data buku yang tersedia, melakukan peminjaman buku, melakukan pengembalian buku,dan dan melihat riwayat peminjaman buku.
 
-### Struktur project
+### Struktur Project
 ---
 
 Project ini terdiri dari 2 file, yaitu : File program dan file dokumentasi
-File program sebagai file utama dari project ini berisi codingan yang menerapkan database mysql sebagai tempat penyimpanan data akun, peminjaman, pengembalian, serta history. Program ini juga menerapkan fungsi linkedlist untuk mengelola databuku, fungsi shellsort untuk mengsorting databuku, serta fungsi fibbonaccisearch untuk mengsearching databuku. Lalu selanjutnya file dokumentasi, yakni readme.md yang merupakan file yang berisi dokumentasi project, penjelasan singkat program, fitur fitur yang terdapat pada program serta termasuk cara untuk menjalankan program.
+
+File program sebagai file utama dari project ini berisi codingan yang menerapkan database mysql sebagai tempat penyimpanan untuk data akun user, peminjaman buku, pengembalian buku, serta history peminjaman. Program ini juga menerapkan fungsi linkedlist untuk mengelola data buku, fungsi shellsort untuk mengsorting data buku, serta fungsi jumpsearch untuk mengsearching data buku. 
+Lalu selanjutnya file dokumentasi, yakni readme.md yang merupakan file berisi dokumentasi project, penjelasan singkat program, fitur fitur yang terdapat pada program serta termasuk cara untuk menjalankan program.
 
 
-### Fitur dan fungsionalitas
+### Fitur dan Fungsionalitas
 ---
 
 * Berikut adalah beberapa contoh fitur dan fungsionalitas pada program:
@@ -20,9 +22,9 @@ File program sebagai file utama dari project ini berisi codingan yang menerapkan
 
 * Fitur dan fungsionalitas role admin terdapat :
 
-  - Fitur Tambah data: Memungkinkan admin untuk melakukan penambahan databuku kedalam sistem.
-  - Fitur Pencarian: Memungkinkan admin untuk mencari data atau informasi mengenai databuku didalam sistem.
-  - Fitur Sorting: Memungkinkan admin untuk memfilter atau mensorting databuku dalam sistem berdasarkan judul buku secara ascending (urutan secara abjad)
+  - Fitur Tambah data : Memungkinkan admin untuk melakukan penambahan databuku kedalam sistem.
+  - Fitur Pencarian : Memungkinkan admin untuk mencari data atau informasi mengenai databuku didalam sistem.
+  - Fitur Sorting : Memungkinkan admin untuk memfilter atau mensorting databuku dalam sistem berdasarkan judul buku secara ascending
   - Fitur Hapus data : Memungkinkan admin untuk melakukan penghapusan databuku didalam sistem.
 
 * Fitur dan fungsionalitas role pengunjung terdapat :
