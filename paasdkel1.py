@@ -106,6 +106,85 @@ try :
             while current_node is not None:
                 self.searching.append(current_node.data1)
                 current_node = current_node.next
+                
+        def shellsort(self):
+            j = self.get_length()
+            if j > 0 :
+                gap = j // 2
+                while gap > 0 :
+                    for i in range(gap,j):
+                        temp_node = self.get_node_at_index(i)
+                        temp_data1 = temp_node.data1
+                        temp_data2 = temp_node.data2
+                        temp_data3 = temp_node.data3
+                        temp_data4 = temp_node.data4
+                        v = i 
+                        while v >= gap and self.get_node_at_index(v - gap).data1>temp_data1:
+                            node_v_gap = self.get_node_at_index(v - gap)
+                            self.get_node_at_index(v).data1 = node_v_gap.data1
+                            self.get_node_at_index(v).data2 = node_v_gap.data2                
+                            self.get_node_at_index(v).data3 = node_v_gap.data3
+                            self.get_node_at_index(v).data4 = node_v_gap.data4                
+                            v -= gap
+                        self.get_node_at_index(v).data1 = temp_data1
+                        self.get_node_at_index(v).data2 = temp_data2
+                        self.get_node_at_index(v).data3 = temp_data3
+                        self.get_node_at_index(v).data4 = temp_data4
+                    gap //= 2
+                    print("Berhasil mengurutkan data buku")
+                    LinkedList.tampil(self)
+            else :
+                LinkedList.tampil(self)
+
+        def get_node_at_index(self, index):
+            current_node = self.head
+            count = 0
+            while current_node is not None:
+                if count == index:
+                    return current_node
+                count += 1
+                current_node = current_node.next
+            return None
+        
+        def get_length(self):
+            current_node = self.head
+            count = 0
+            while current_node:
+                count += 1
+                current_node = current_node.next
+            return count
+            
+
+    ll = LinkedList()
+
+    def tambah():
+        while True:
+            a1 = input("Masukan judul buku : ").capitalize()
+            a1_space = a1.strip()
+            if all(j.isalnum() or j.isspace() for j in a1) and len(a1_space) > 0:
+                a2 = input("Masukan nama pengarang buku : ").capitalize()
+                a2_space = a2.strip()
+                if all(s.isalnum() or s.isspace() for s in a2) and len(a2_space) > 0:
+                    try :
+                        a3 = int(input("Masukan jumlah halaman buku : "))
+                        a4= int(input("masukan jumlah stok buku : "))
+                        if a4 >= 1:
+                            ll.tambahdata(a1, a2, a3,a4)
+                            ll.tampil()
+                            break
+                        else :
+                            clear()
+                            print("Stok tidak bisa 0")
+                    except:
+                        clear()
+                        print("Mohon inputkan data dengan benar!\n")
+                else :
+                    clear()
+                    print("Mohon masukan nama pengarang dengan benar!\n")
+            else :
+                clear()
+                print("Mohon masukan judul buku dengan benar!\n")
+
 
 except mysql.connector.Error as error:
     clear()
