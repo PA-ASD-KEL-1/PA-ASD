@@ -289,7 +289,55 @@ try :
         else:
             clear()
             print("History masih kosong, belum ada data")
+            
+    def menu1():
+        print('''
+        Silahkan pilih menu yang tersedia : 
+        (1) Tampilkan data buku
+        (2) Tambah data buku
+        (3) Urutkan data buku
+        (4) Menghapus data buku
+        (5) Searching data buku
+        (6) Keluar''')
 
+    def menu3():
+        print('''
+        Silahkan pilih menu yang tersedia : 
+        (1) Tampilkan data buku
+        (2) Peminjaman buku
+        (3) Kembalikan buku
+        (4) History peminjaman buku
+        (5) Keluar''')
+
+    def menuadmin():
+        while True :
+            menu1()
+            try :
+                aa1 = int(input("\nMasukan pilihan (1/2/3/4/5) : "))
+                if aa1 == 1:
+                    clear()
+                    ll.tampil()
+                elif aa1 == 2:
+                    clear()
+                    tambah()
+                elif aa1 == 3:
+                    clear()
+                    ll.shellsort()
+                elif aa1 == 4:
+                    clear()
+                    ll.hapusdata()
+                elif aa1 == 5:
+                    clear()
+                    search()
+                elif aa1 == 6:
+                    clear()
+                    menuawal()
+                else :
+                    clear()
+                    print("Pilihan tidak tersedia!")
+            except :
+                clear()
+                print("Harap masukan inputan dengan benar!")  
 
 
 except mysql.connector.Error as error:
