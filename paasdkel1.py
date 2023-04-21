@@ -184,6 +184,112 @@ try :
             else :
                 clear()
                 print("Mohon masukan judul buku dengan benar!\n")
+                
+    def search():
+        clear()
+        ll.shellsort()
+        ll.tambahlist()
+        try :
+            cari = input("\nMasukan judul buku yang ingin dicari : ").capitalize()
+            result = ll.jumpsearch(ll.searching,cari,len(ll.searching))
+            if result == -1:
+                clear()
+                print(f"Data buku dengan judul {cari} tidak ditemukan")
+            else:
+                c = result
+                c += 1
+                clear()
+                print(f"Data buku dengan judul {cari} ditemukan dinomor {c}")
+        except :
+            clear()
+            print(f"Data buku tidak ditemukan")
+    
+    def pinjam():
+        clear()
+        ll.tampil()
+        try :
+            user = ll.ul[0]
+            a = str(input("\nMasukan judul buku yang ingin dipinjam : ")).capitalize()
+            node = ll.get_node_at_index(ll.jumpsearch(a))
+            if not node:
+                print("Data buku tidak ditemukan")
+                return
+            else :
+                if node.data4 < 1:
+                    clear()
+                    print("stok tidak cukup")
+                else:
+                    myycursor = db.cursor()
+                    sqlll = (f"Select namabuku from pinjambuku where namabuku = '{a}' and user= '{user}'")
+                    myycursor.execute(sqlll)
+                    results = myycursor.fetchone()
+
+                    if results is None:
+                        mycursor = db.cursor()
+                        node.data4 -= 1
+                        databuku = node.data1
+                        jumlah = 1
+                        sql = "INSERT INTO pinjambuku(namabuku, jumlah, user) VALUES (%s, %s, %s)"
+                        val = (databuku, jumlah, user)
+                        mycursor.execute(sql, val)
+                        db.commit()
+                        clear()
+                        print(f"Jumlah buku yang dipinjam: {1} ,judul buku: {node.data1} berhasil dipinjam")
+                    else :
+                        clear()
+                        print(f"Buku dengan judul {a} hanya bisa dipinjam sekali")
+        except :
+            clear()
+            print(f"Gagal melakukan peminjaman, data buku tidak ditemukan")
+
+    def kembalikan():
+        b = input("\nMasukan judul buku yang ingin dikembalikan : ").capitalize()
+        node = ll.get_node_at_index(ll.jumpsearch(b))
+        if not node:
+            clear()
+            print("Data buku tidak ditemukan")
+            return
+        else :
+            user = ll.ul[0]
+            mcursor = db.cursor()
+            sqll = (f"SELECT status FROM pinjambuku WHERE user = '{user}' and namabuku = '{b}'")
+            mcursor.execute(sqll)
+            result = mcursor.fetchone()
+
+            a = "belum dikembalikan"
+            for i in result:
+                if i == a:
+                    o = "dikembalikan"
+                    ssql = (f"Update pinjambuku set status = '{o}' where user = '{user}' and namabuku = '{b}'")
+                    mcursor.execute(ssql)
+                    node.data4 +=1
+                    db.commit()
+                    clear()
+                    print(f"Jumlah buku yang dikembalikan: {1}, judul buku: {node.data1} berhasil dikembalikan")
+                else :
+                    clear()
+                    print("Buku sudah dikembalikan")
+
+    def histori():
+        user = ll.ul[0]
+        cursorr = db.cursor()
+        sqll = (f"SELECT namabuku,jumlah,status,user FROM pinjambuku WHERE user = '{user}'")
+        cursorr.execute(sqll)
+        results = cursorr.fetchall()
+        import prettytable
+        x = prettytable.PrettyTable()
+        no = 1
+        x.field_names = ["No", "Nama Buku", "Jumlah buku", "Status", "Peminjam"]
+        if results is not None:
+            for i in results:
+                x.add_row([no, i[0], i[1], i[2], i[3]])
+                no += 1
+            print("Daftar riwayat Peminjaman Buku")
+            print(x)
+        else:
+            clear()
+            print("History masih kosong, belum ada data")
+
 
 
 except mysql.connector.Error as error:
