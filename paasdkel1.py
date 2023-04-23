@@ -15,7 +15,7 @@ try :
     database='perpuskelompok1'
     )
     
-     class Node:
+    class Node:
         def __init__(self, data1, data2, data3, data4):
             self.data1 = data1 
             self.data2 = data2
