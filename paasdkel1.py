@@ -366,6 +366,129 @@ try :
             except:
                 clear()
                 print("Harap masukan inputan dengan benar!")
+     def login():
+        clear()
+        z1 = input("Masukan username anda : ").capitalize()
+        z2 = pwinput.pwinput("Masukan password anda : ").capitalize()
+        cursor = db.cursor()
+        sql = (f"SELECT level FROM user WHERE username = '{z1}' and password = '{z2}'")
+        cursor.execute(sql)
+
+        results = cursor.fetchone()
+
+        if results is not None:
+            for data in results:
+                clear()
+            
+            c = db.cursor()
+            sqll = (f"select nama from user where username = '{z1}'")
+            c.execute(sqll)
+
+            nm = c.fetchone()
+
+            for i in nm:
+                if data == "admin":
+                  print("Berhasil login")
+                  time.sleep(1)
+                  clear()
+                  print(f"Halo selamat datang, {i}")
+                  menuadmin()
+
+                elif data == "pengunjung":
+                    print("Berhasil login")
+                    time.sleep(1)
+                    clear()
+                    print(f"Halo selamat datang, {i}")
+                    ll.ul.append(z1)
+                    menupengunjung()
+
+                else :
+                    clear()
+                    print(f"Akun dengan username {z1} tidak ditemukan !")
+        else :
+            clear()
+            print(f"Username atau password yang anda masukan salah!")
+            time.sleep(1)
+    
+    def register():
+        datanama = input("Masukkan nama anda : ").capitalize()
+        dn_space = datanama.strip()
+        if all(d.isalnum() or d.isspace() for d in datanama) and len(dn_space) > 0:
+            datausername = input("Buat username anda : ").capitalize()
+            du_space = datausername.strip()
+            if all(b.isalnum() or b.isspace() for b in datausername) and len(du_space) > 0:
+                datapassword = input("Buat password anda : ").capitalize()
+                db_space =  datapassword.strip()
+                if all(f.isalnum() or f.isspace() for f in datapassword) and len(db_space) > 0:
+                    level = "pengunjung"
+
+                    mycursor = db.cursor()
+                    conn = db.cursor()
+                    sqll = (f"SELECT username FROM user WHERE username = '{datausername}'")
+                    conn.execute(sqll)
+
+                    results = conn.fetchone()
+
+                    if results is not None:
+                        clear()
+                        print("Tidak dapat membuat akun")
+                        time.sleep(1)
+                        clear()
+                        print(f"Akun dengan username {datausername} telah ada !")
+                        time.sleep(2)
+
+                    else :
+                        sql = "INSERT INTO user(nama, username, password, level) VALUES (%s, %s, %s, %s)"
+                        val = (datanama, datausername, datapassword, level)
+                        mycursor.execute(sql, val)
+
+                        db.commit()
+
+                        clear()
+                        print(mycursor.rowcount, "akun berhasil dibuat")
+                        time.sleep(1)
+                else :
+                        clear()
+                        print("Mohon buat password hanya dari kombinasi huruf dan angka saja!")
+                        time.sleep(1)
+            else :
+                clear()
+                print("Mohon buat username hanya dari kombinasi huruf dan angka!")
+                time.sleep(1)
+        else :
+            clear()
+            print("Mohon masukan nama lengkap anda dengan benar!")
+            time.sleep(1)
+
+    def menu2():
+        clear()
+        print("== Selamat datang di Sistem Informasi Perpustakaan == ")
+        print('''
+        Silahkan pilih menu yang tersedia
+        (1) Login
+        (2) Register user''')
+
+    def menuawal():
+        while True:
+            menu2()
+            try :
+                bb1 = int(input("\nMasukan pilihan anda (1/2) : "))
+                if bb1 == 1:
+                    login()
+                elif bb1 == 2:
+                    clear()
+                    register()
+                else :
+                    clear()
+                    print("Pilihan tidak tersedia!")
+                    time.sleep(1)
+
+            except ValueError:
+                clear()
+                print("Harap masukan inputan dengan benar!")
+                time.sleep(1)
+
+    menuawal()
 
 
 except mysql.connector.Error as error:
