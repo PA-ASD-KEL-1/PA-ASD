@@ -337,7 +337,35 @@ try :
                     print("Pilihan tidak tersedia!")
             except :
                 clear()
-                print("Harap masukan inputan dengan benar!")  
+                print("Harap masukan inputan dengan benar!")
+                
+    def menupengunjung():
+        while True :
+            menu3()
+            try :
+                aa2 = int(input("\nMasukan pilihan (1/2/3/4/5) : "))
+                if aa2 == 1:
+                    clear()
+                    ll.tampil()
+                elif aa2 == 2:
+                    clear()
+                    pinjam()
+                elif aa2 == 3:
+                    clear()
+                    kembalikan()
+                elif aa2 == 4:
+                    clear()
+                    histori()
+                elif aa2 == 5:
+                    clear()
+                    del ll.ul[0]
+                    menuawal()
+                else :
+                    clear()
+                    print("Pilihan tidak tersedia!")
+            except:
+                clear()
+                print("Harap masukan inputan dengan benar!")
 
 
 except mysql.connector.Error as error:
