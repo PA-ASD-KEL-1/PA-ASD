@@ -59,13 +59,14 @@ try :
                 if current and current.data1 == b1:
                     self.head = current.next
                     current = None
-                    print("Data buku berhasil dihapus")
+                    print("Data buku berhasil dihapus!")
                     return
                 prev = None
                 while current and current.data1 != b1:
                     prev = current
                     current = current.next
                 if current is None:
+                    clear()
                     print("Data buku tidak ditemukan!")
                     return
                 prev.next = current.next
@@ -90,12 +91,12 @@ try :
         
         def tampil(self):
             if not self.head:
-                print("Data masih kosong")
+                print("Data buku masih kosong")
             else:
                 current = self.head
                 no = 1
                 table = PrettyTable(["No", "Judul Buku", "Nama Pengarang", "Jumlah Halaman", "Stok"])
-                while current is not None and current.data4 > 0:
+                while current is not None:
                     table.add_row([no,current.data1,current.data2,current.data3,current.data4])
                     no += 1
                     current = current.next
@@ -131,10 +132,8 @@ try :
                         self.get_node_at_index(v).data3 = temp_data3
                         self.get_node_at_index(v).data4 = temp_data4
                     gap //= 2
-                    print("Berhasil mengurutkan data buku")
-                    LinkedList.tampil(self)
             else :
-                LinkedList.tampil(self)
+                return 
 
         def get_node_at_index(self, index):
             current_node = self.head
@@ -154,7 +153,6 @@ try :
                 current_node = current_node.next
             return count
             
-
     ll = LinkedList()
 
     def tambah():
@@ -174,7 +172,7 @@ try :
                             break
                         else :
                             clear()
-                            print("Stok tidak bisa 0")
+                            print("Stok tidak bisa 0!")
                     except:
                         clear()
                         print("Mohon inputkan data dengan benar!\n")
@@ -189,35 +187,42 @@ try :
         clear()
         ll.shellsort()
         ll.tambahlist()
+        ll.tampil()
         try :
             cari = input("\nMasukan judul buku yang ingin dicari : ").capitalize()
             result = ll.jumpsearch(ll.searching,cari,len(ll.searching))
             if result == -1:
                 clear()
                 print(f"Data buku dengan judul {cari} tidak ditemukan")
+                ll.searching.clear()
             else:
-                c = result
-                c += 1
                 clear()
-                print(f"Data buku dengan judul {cari} ditemukan dinomor {c}")
+                print(f"Data buku dengan judul {cari} ditemukan dinomor {result+1}")
+                ll.searching.clear()
         except :
             clear()
             print(f"Data buku tidak ditemukan")
     
     def pinjam():
         clear()
+        ll.shellsort()
+        ll.tambahlist()
         ll.tampil()
         try :
             user = ll.ul[0]
-            a = str(input("\nMasukan judul buku yang ingin dipinjam : ")).capitalize()
-            node = ll.get_node_at_index(ll.jumpsearch(a))
+            a = input("\nMasukan judul buku yang ingin dipinjam: ").capitalize()
+            index = ll.jumpsearch(ll.searching, a ,len(ll.searching))
+            node = ll.get_node_at_index(index)
             if not node:
-                print("Data buku tidak ditemukan")
+                clear()
+                print("Data buku tidak ditemukan!")
+                ll.searching.clear()
                 return
             else :
                 if node.data4 < 1:
                     clear()
-                    print("stok tidak cukup")
+                    print("Stok tidak cukup")
+                    ll.searching.clear()
                 else:
                     myycursor = db.cursor()
                     sqlll = (f"Select namabuku from pinjambuku where namabuku = '{a}' and user= '{user}'")
@@ -234,20 +239,28 @@ try :
                         mycursor.execute(sql, val)
                         db.commit()
                         clear()
-                        print(f"Jumlah buku yang dipinjam: {1} ,judul buku: {node.data1} berhasil dipinjam")
+                        print("Berhasil meminjam buku!")
+                        print(f"Judul buku: {node.data1} \nJumlah buku yang dipinjam: {1}")
+                        ll.searching.clear()
                     else :
                         clear()
                         print(f"Buku dengan judul {a} hanya bisa dipinjam sekali")
+                        ll.searching.clear()
         except :
             clear()
             print(f"Gagal melakukan peminjaman, data buku tidak ditemukan")
+            ll.searching.clear()
 
     def kembalikan():
+        ll.shellsort()
+        ll.tambahlist()
         b = input("\nMasukan judul buku yang ingin dikembalikan : ").capitalize()
-        node = ll.get_node_at_index(ll.jumpsearch(b))
+        index = ll.jumpsearch(ll.searching, b ,len(ll.searching))
+        node = ll.get_node_at_index(index)
         if not node:
             clear()
-            print("Data buku tidak ditemukan")
+            print("Data buku tidak ditemukan!")
+            ll.searching.clear()
             return
         else :
             user = ll.ul[0]
@@ -265,10 +278,13 @@ try :
                     node.data4 +=1
                     db.commit()
                     clear()
-                    print(f"Jumlah buku yang dikembalikan: {1}, judul buku: {node.data1} berhasil dikembalikan")
+                    print("Berhasil mengembalikan buku!")
+                    print(f"Judul buku: {node.data1} \nJumlah buku yang dikembalikan: {1}")
+                    ll.searching.clear()
                 else :
                     clear()
                     print("Buku sudah dikembalikan")
+                    ll.searching.clear()
 
     def histori():
         user = ll.ul[0]
@@ -280,7 +296,7 @@ try :
         x = prettytable.PrettyTable()
         no = 1
         x.field_names = ["No", "Nama Buku", "Jumlah buku", "Status", "Peminjam"]
-        if results is not None:
+        if results is not None and len(results) > 0:
             for i in results:
                 x.add_row([no, i[0], i[1], i[2], i[3]])
                 no += 1
@@ -323,6 +339,7 @@ try :
                 elif aa1 == 3:
                     clear()
                     ll.shellsort()
+                    ll.tampil()
                 elif aa1 == 4:
                     clear()
                     ll.hapusdata()
@@ -366,6 +383,7 @@ try :
             except:
                 clear()
                 print("Harap masukan inputan dengan benar!")
+
     def login():
         clear()
         z1 = input("Masukan username anda : ").capitalize()
@@ -487,9 +505,7 @@ try :
                 clear()
                 print("Harap masukan inputan dengan benar!")
                 time.sleep(1)
-
     menuawal()
-
 
 except mysql.connector.Error as error:
     clear()
